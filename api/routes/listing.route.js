@@ -10,14 +10,10 @@ import { verifyToken } from "../utils/verifyUser.js";
 
 const router = express.Router();
 
-router.post(
-  "https://mern-estate-server-inky.vercel.app/create",
-  verifyToken,
-  createListing
-);
+router.post("/create", verifyToken, createListing);
 router.delete("/delete/:id", verifyToken, deleteListing);
 router.post("/update/:id", verifyToken, updateListing);
-router.get("https://mern-estate-server-inky.vercel.app/get/:id", getListing);
-router.get("https://mern-estate-server-inky.vercel.app/get", getListings);
+router.get("/get/:id", getListing);
+router.get("/get", getListings);
 
 export default router;
